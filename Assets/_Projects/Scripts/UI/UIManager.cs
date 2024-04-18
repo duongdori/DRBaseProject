@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using DR.Utilities.Extensions;
 using UnityEngine;
 
@@ -28,10 +27,8 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void OnInit()
     {
-
-        for (int i = 0; i < arrScreens.Length; i++)
+        foreach (var screen in arrScreens)
         {
-            var screen = arrScreens[i];
             var screenName = screen.GetName();
 
             if (!_dicScreens.TryAdd(screenName, screen))
@@ -40,21 +37,20 @@ public class UIManager : MonoSingleton<UIManager>
             }
         }
 
-        for (int i = 0; i < arrScreens.Length; i++)
+        foreach (var screen in arrScreens)
         {
-            arrScreens[i].OnInit();
+            screen.OnInit();
         }
 
-        for (int i = 0; i < arrPopups.Length; i++)
+        foreach (var popup in arrPopups)
         {
-            var popup = arrPopups[i];
             var popupName = popup.GetName();
             _dicPopups.TryAdd(popupName, popup);
         }
 
-        for (int i = 0; i < arrPopups.Length; i++)
+        foreach (var popup in arrPopups)
         {
-            arrPopups[i].OnInit();
+            popup.OnInit();
         }
     }
 
@@ -142,15 +138,12 @@ public class UIManager : MonoSingleton<UIManager>
     
     public void ShowOverlay()
     {
-        overlay.gameObject.SetActive(true);
+        overlay.SetActive(true);
     }
     
     public void HideOverlay()
     {
-        overlay.DOFade(0f, 0.3f).OnComplete(() =>
-        {
-            overlay.SetActive(false);
-        });
+        overlay.SetActive(false, 0.3f);
     }
 
 #if UNITY_ANDROID

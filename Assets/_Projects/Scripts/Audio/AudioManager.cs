@@ -1,10 +1,6 @@
 ﻿using DR.Utilities.Extensions;
 using UnityEngine;
 
-/*
- * Manager audio
- */
-
 public class AudioSourcePool : PoolPolling<AudioSource>
 {
     public AudioSourcePool(AudioSource prefab) : base(prefab)
@@ -62,14 +58,13 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void OnInit()
     {
-        if (!isInit)
-        {
-            isInit = true;
+        if (isInit) return;
+        
+        isInit = true;
 
-            audioSourcePool = new AudioSourcePool(audioPrefab);
-            audioAsset?.InitDic();
-            PlayMusic(AudioType.BG_MUSIC, 0.5f);
-        }
+        audioSourcePool = new AudioSourcePool(audioPrefab);
+        audioAsset?.InitDic();
+        PlayMusic(AudioType.BG_MUSIC, 0.5f);
     }
 
     public AudioSource GetSource()
@@ -106,13 +101,11 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void PauseMusic()
     {
         musicSource.mute = true;
-        // KoreoManager.Instance.SetMuteKoreo(true);
     }
 
     public void UnPauseMusic()
     {
         musicSource.mute = false;
-        // KoreoManager.Instance.SetMuteKoreo(false);
     }
 
     public void PlaySound(AudioType type)

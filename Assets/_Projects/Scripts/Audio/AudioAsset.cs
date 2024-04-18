@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum AudioType
@@ -9,9 +10,6 @@ public enum AudioType
     BUTTON_CLICK,
     OBJECT_CLICK,
     CAMERA,
-    FIREWORK,
-    HPBD,
-    LIGHT_CANDLE,
     ADS,
     Hit,
     CLICK,
@@ -20,7 +18,7 @@ public enum AudioType
 [CreateAssetMenu(menuName = "Asset/AudioAsset", fileName = "AudioAsset")]
 public class AudioAsset : ScriptableObject
 {
-    [System.Serializable]
+    [Serializable]
     public struct AudioData
     {
         public AudioType audioType;
@@ -32,26 +30,27 @@ public class AudioAsset : ScriptableObject
             this.audioClip = audioClip;
         }
     }
-    public AudioData[] audioDataSet = new AudioData[0];
-    private Dictionary<AudioType, AudioClip> dicClips = new Dictionary<AudioType, AudioClip>();
+    public AudioData[] audioDataSet = Array.Empty<AudioData>();
+    private Dictionary<AudioType, AudioClip> _dicClips = new();
 
     public void InitDic()
     {
         foreach (var item in audioDataSet)
         {
-            if (!dicClips.ContainsKey(item.audioType))
+            if (!_dicClips.ContainsKey(item.audioType))
             {
-                dicClips.Add(item.audioType, item.audioClip);
+                _dicClips.Add(item.audioType, item.audioClip);
             }
         }
     }
 
     public AudioClip GetClip(AudioType audioType)
     {
-        if (dicClips.ContainsKey(audioType))
+        if (_dicClips.TryGetValue(audioType, out var clip))
         {
-            return dicClips[audioType];
+            return clip;
         }
+        
         Debug.LogErrorFormat("Missing audio type :{0}", audioType);
         return null;
     }
