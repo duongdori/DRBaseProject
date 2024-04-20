@@ -1,0 +1,16 @@
+{
+    "name": "DR.DRSound",
+    "rootNamespace": "DR.DRSound",
+    "references": [
+        "GUID:09eaa0285a330a346aa01d8222311be3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

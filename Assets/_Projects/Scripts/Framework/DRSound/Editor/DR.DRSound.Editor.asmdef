@@ -1,0 +1,17 @@
+{
+    "name": "DR.DRSound.Editor",
+    "rootNamespace": "DR.DRSound.Editor",
+    "references": [
+        "GUID:f8dad0c4fdc25e34fb2a3431bfb1dc94",
+        "GUID:09eaa0285a330a346aa01d8222311be3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
