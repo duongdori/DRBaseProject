@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using DR.Utilities.Extensions;
 using UnityEngine;
 
@@ -31,18 +33,16 @@ public class PopupBase : MonoBehaviour
         OnHide();
     }
 
-
-    public virtual void OnShow()
+    public virtual void OnShow(float fadeTime = 0.0f, Ease ease = Ease.Linear, Action onComplete = null)
     {
-        canvasGroup.SetActive(true);
         isShowing = true;
+        canvasGroup.SetActive(true, fadeTime, ease, onComplete);
     }
 
-
-    public virtual void OnHide()
+    public virtual void OnHide(float fadeTime = 0.0f, Ease ease = Ease.Linear, Action onComplete = null)
     {
-        canvasGroup.SetActive(false);
         isShowing = false;
+        canvasGroup.SetActive(false, fadeTime, ease, onComplete);
     }
 
     public virtual void OnRelease()

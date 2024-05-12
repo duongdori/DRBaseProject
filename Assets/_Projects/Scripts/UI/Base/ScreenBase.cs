@@ -30,14 +30,11 @@ public class ScreenBase : MonoBehaviour
         OnHide();
     }
 
-
     public virtual void OnShow()
     {
         canvasGroup.SetActive(true);
         this.isShowing = true;
-
     }
-
 
     public virtual void OnHide()
     {

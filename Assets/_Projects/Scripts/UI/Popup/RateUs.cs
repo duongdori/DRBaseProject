@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,14 +43,15 @@ public class RateUs : PopupAnim
 #endif
     }
 
-    public override void OnShow()
+    public override void OnShow(float fadeTime = 0, Ease ease = Ease.Linear, Action onComplete = null)
     {
         if(_isRateUs) return;
         _isRateUs = true;
         
         DataManager.Instance.GetData<DataUser>().SetRateUs(_isRateUs);
         
-        base.OnShow();
+        base.OnShow(fadeTime, ease, onComplete);
+        
         _rateCount = 0;
 
         for (int i = 0; i < imgArray.Length; i++)
@@ -58,7 +60,6 @@ public class RateUs : PopupAnim
         }
         btnRate.interactable = false;
     }
-
 
     private void OnChooseStar(int star)
     {

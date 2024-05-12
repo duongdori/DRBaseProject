@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 public class PopupSetting : PopupAnim
@@ -68,17 +69,11 @@ public class PopupSetting : PopupAnim
         OnHideSettingCallback += callback;
     }
 
-
-    public override void OnShow()
+    public override void OnShow(float fadeTime = 0, Ease ease = Ease.Linear, Action onComplete = null)
     {
-        base.OnShow();
+        base.OnShow(fadeTime, ease, onComplete);
         Refresh();
-
-       // InputManager.Instance.SetActive(false);
-       // panel.anchoredPosition = new Vector2(panel.anchoredPosition.x + 1000f, panel.anchoredPosition.y);
-        //panel.DOAnchorPosX(0f, moveDuration);
     }
-
 
     private void Refresh()
     {
@@ -115,16 +110,10 @@ public class PopupSetting : PopupAnim
         Refresh();
     }
 
-    public override void OnHide()
+    public override void OnHide(float fadeTime = 0, Ease ease = Ease.Linear, Action onComplete = null)
     {
-        base.OnHide();
-
+        base.OnHide(fadeTime, ease, onComplete);
         OnHideSettingCallback?.Invoke();
         OnHideSettingCallback = null;
-        //panel.DOAnchorPos(new Vector2(panel.anchoredPosition.x - 1000f, panel.anchoredPosition.y), moveDuration).OnComplete(() =>
-        //{
-
-        //});
     }
-
 }

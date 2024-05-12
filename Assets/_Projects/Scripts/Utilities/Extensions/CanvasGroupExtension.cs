@@ -6,10 +6,10 @@ namespace DR.Utilities.Extensions
 {
     public static class CanvasGroupExtension
     {
-        public static void SetActive(this CanvasGroup canvasGroup, bool isActive, float fadeTime = 0.0f)
+        public static void SetActive(this CanvasGroup canvasGroup, bool isActive, float fadeTime = 0.0f, Ease ease = Ease.Linear, Action onComplete = null)
         {
             canvasGroup.DOKill();
-            canvasGroup.DOFade(isActive ? 1.0f : 0.0f, fadeTime);
+            canvasGroup.DOFade(isActive ? 1.0f : 0.0f, fadeTime).SetEase(ease).OnComplete(() => onComplete?.Invoke());
             canvasGroup.blocksRaycasts = isActive;
         }
         
