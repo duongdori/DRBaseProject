@@ -72,7 +72,7 @@ namespace DR.Utilities.Extensions
 
         public static void DestroyAllChild(this GameObject gameObject)
         {
-            gameObject.transform.DestroyAllChild();
+            gameObject.transform.DestroyAllChildren();
         }
         
         public static void DestroyAllChildImmediate(this GameObject gameObject)
@@ -82,7 +82,7 @@ namespace DR.Utilities.Extensions
         
         public static void DespawnAllChild(this GameObject gameObject)
         {
-            gameObject.transform.DespawnAllChild();
+            gameObject.transform.DespawnAllChildren();
         }
 
         #endregion
@@ -117,6 +117,7 @@ namespace DR.Utilities.Extensions
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, z);
             return gameObject;
+            
         }
 
         #endregion
