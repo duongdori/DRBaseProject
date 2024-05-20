@@ -9,7 +9,7 @@ public class ColoredParticleSystem : PoolElement
 
     #region EDITOR PARAMS
 
-    public List<ParticleSystem> splashPSList = new List<ParticleSystem>();
+    public List<ParticleSystem> splashPSList = new();
 
     #endregion
 

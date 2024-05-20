@@ -39,5 +39,11 @@ namespace DR.Utilities.Extensions
         {
             rend.sharedMesh = mesh;
         }
+        
+        public static bool IsVisibleFromCamera(this Renderer renderer, Camera camera)
+        {
+            Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(camera);
+            return GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds);
+        }
     }
 }

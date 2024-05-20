@@ -9,10 +9,10 @@ public class PoolManager : MonoSingleton<PoolManager>
     // Dont despawn when game-end
     [SerializeField] private SpawnPool poolDontDestroy = null;
     
-    protected override void Initiate()
-    {
-        //DontDestroyOnLoad(this.gameObject);
-    }
+    // protected override void Initiate()
+    // {
+    //     DontDestroyOnLoad(this.gameObject);
+    // }
 
     public Transform SpawnDontDestroy(Transform prefab)
     {

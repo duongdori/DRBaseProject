@@ -21,6 +21,8 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
             {
                 Debug.LogError($"Problem during the creation of {typeof(T).ToString()}");
             }
+            
+            _instance.Initiate();
             return _instance;
         }
     }
@@ -43,6 +45,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 
     protected virtual void Initiate()
     {
+        Debug.Log($"Initiate {typeof(T).ToString()}");
         DontDestroyOnLoad(gameObject);
     }
     

@@ -224,7 +224,7 @@ namespace DR.Utilities.Extensions
 
         #endregion
 
-        #region DesapwnChildren
+        #region DespawnChildren
 
         public static void DespawnAllChildren(this Transform parent)
         {
@@ -374,7 +374,7 @@ namespace DR.Utilities.Extensions
 
         public static void SetLocalScale(this Transform transform, Vector3 localScale)
         {
-            transform.localPosition = localScale;
+            transform.localScale = localScale;
         }
 
         public static void SetLocalScaleX(this Transform transform, float x)
@@ -432,7 +432,17 @@ namespace DR.Utilities.Extensions
         #endregion
 
         #region SetEulerAngles
-
+        
+        public static void SetEulerAngle(this Transform transform, float x, float y, float z)
+        {
+            transform.eulerAngles = new Vector3(x, y, z);
+        }
+        
+        public static void SetEulerAngle(this Transform transform, Vector3 rotation)
+        {
+            transform.eulerAngles = rotation;
+        }
+        
         public static void SetEulerAngleX(this Transform transform, float x)
         {
             transform.eulerAngles = new Vector3(x, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -451,6 +461,16 @@ namespace DR.Utilities.Extensions
         #endregion
         
         #region SetLocalEulerAngles
+        
+        public static void SetLocalEulerAngle(this Transform transform, float x, float y, float z)
+        {
+            transform.localEulerAngles = new Vector3(x, y, z);
+        }
+        
+        public static void SetLocalEulerAngle(this Transform transform, Vector3 rotation)
+        {
+            transform.localEulerAngles = rotation;
+        }
         
         public static void SetLocalEulerAngleX(this Transform transform, float x)
         {
@@ -528,6 +548,17 @@ namespace DR.Utilities.Extensions
         #endregion
         
         #region AddLocalScale
+        
+        public static void AddLocalScale(this Transform transform, float x, float y, float z)
+        {
+            transform.SetLocalScale(transform.localScale.x + x, transform.localScale.y + y, transform.localScale.z + z);
+        }
+        
+        public static void AddLocalScale(this Transform transform, Vector3 scale)
+        {
+            transform.SetLocalScale(transform.localScale + scale);
+        }
+        
         public static void AddLocalScaleX(this Transform transform, float value)
         {
             transform.SetLocalScaleX(transform.localScale.x + value);
@@ -575,6 +606,16 @@ namespace DR.Utilities.Extensions
 
         #region AddEulerAngles
         
+        public static void AddEulerAngle(this Transform transform, float x, float y, float z)
+        {
+            transform.SetEulerAngle(transform.eulerAngles.x + x, transform.eulerAngles.y + y, transform.eulerAngles.z + z);
+        }
+        
+        public static void AddEulerAngle(this Transform transform, Vector3 rotation)
+        {
+            transform.SetEulerAngle(transform.eulerAngles + rotation);
+        }
+        
         public static void AddEulerAngleX(this Transform transform, float value)
         {
             transform.SetEulerAngleX(transform.eulerAngles.x + value);
@@ -593,6 +634,16 @@ namespace DR.Utilities.Extensions
         #endregion
         
         #region AddLocalEulerAngles
+        
+        public static void AddLocalEulerAngle(this Transform transform, float x, float y, float z)
+        {
+            transform.SetLocalEulerAngle(transform.localEulerAngles.x + x, transform.localEulerAngles.y + y, transform.localEulerAngles.z + z);
+        }
+        
+        public static void AddLocalEulerAngle(this Transform transform, Vector3 rotation)
+        {
+            transform.SetLocalEulerAngle(transform.localEulerAngles + rotation);
+        }
         
         public static void AddLocalEulerAngleX(this Transform transform, float value)
         {

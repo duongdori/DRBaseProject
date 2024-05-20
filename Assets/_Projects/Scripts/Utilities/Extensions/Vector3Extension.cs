@@ -110,5 +110,10 @@ namespace DR.Utilities.Extensions
             v = Quaternion.AngleAxis(angle, Vector3.back) * v;
             return v;
         }
+        
+        public static Vector3 Round(this Vector3 vector3)
+        {
+            return new Vector3(Mathf.Round(vector3.x), Mathf.Round(vector3.y), Mathf.Round(vector3.z));
+        }
     }
 }

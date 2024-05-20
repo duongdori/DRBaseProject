@@ -131,5 +131,10 @@ namespace DR.Utilities.Extensions
         {
             return Mathf.Atan2(v1.y, v1.x) * Mathf.Rad2Deg;
         }
+        
+        public static Vector2 Round(this Vector2 vector2)
+        {
+            return new Vector2(Mathf.Round(vector2.x), Mathf.Round(vector2.y));
+        }
     }
 }
