@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DRG.Utilities
+namespace DR.Utilities
 {
     public static class SceneHelpers
     {
