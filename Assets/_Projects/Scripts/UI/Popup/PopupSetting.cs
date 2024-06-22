@@ -2,6 +2,9 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using DRG.Audio;
+using AudioType = DRG.Audio.AudioType;
+
 public class PopupSetting : PopupAnim
 {
     public Button btnSound;

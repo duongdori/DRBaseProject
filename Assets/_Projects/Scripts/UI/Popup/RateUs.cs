@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using DG.Tweening;
+using DRG.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using AudioType = DRG.Audio.AudioType;
 
 public class RateUs : PopupAnim
 {

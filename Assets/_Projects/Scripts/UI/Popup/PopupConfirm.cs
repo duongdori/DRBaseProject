@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DRG.Audio;
+using AudioType = DRG.Audio.AudioType;
 
 public class PopupConfirm : PopupAnim
 {
